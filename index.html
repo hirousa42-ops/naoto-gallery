@@ -329,7 +329,32 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #c7a294; outline-
   color: #fff; background: #8a4b3c; border: none; border-radius: 2px; cursor: pointer;
 }
 .submit:hover { background: #743d31; }
-.form__note { margin-top: 14px; font-size: 13px; font-weight: 400; color: #7d7166; }
+.form__note { margin-top: 14px; font-size: 13px; font-weight: 400; color: #7d7166; line-height: 1.8; }
+.result {
+  margin-top: 26px; padding: 20px 20px 22px;
+  background: #f6f2ea; border: 1px solid #d9cfc0;
+}
+.result__head {
+  margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #1f1b18; letter-spacing: .06em;
+}
+.result__text {
+  width: 100%; background: #fff; border: 1px solid #d7cec1; border-radius: 2px;
+  padding: 12px; font-family: inherit; font-size: 14px; font-weight: 400;
+  line-height: 1.8; color: #2b2724; resize: vertical;
+}
+.result__btns { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.result__btn {
+  flex: 1 1 200px; text-align: center; text-decoration: none;
+  padding: 14px 16px; border-radius: 2px; cursor: pointer;
+  font-family: inherit; font-size: 15px; font-weight: 700; letter-spacing: .04em;
+  background: #fff; color: #8a4b3c; border: 1px solid #c7a294;
+}
+.result__btn--main { background: #8a4b3c; color: #fff; border-color: #8a4b3c; }
+.result__btn--main:hover { background: #743d31; }
+.result__btn--done { background: #4f7a52; border-color: #4f7a52; color: #fff; }
+.result__to { margin: 16px 0 0; font-size: 15px; font-weight: 700; color: #1f1b18; }
+.result__to a { color: #8a4b3c; word-break: break-all; }
+.result__note { margin: 10px 0 0; font-size: 13px; font-weight: 400; color: #6d6156; line-height: 1.8; }
 .hidden { display: none; }
 
 /* ============ フッター ============ */
@@ -524,7 +549,7 @@ footer {
       <p class="series__note">横向きの作品から順に並んでいます</p>
       <div class="grid">
       <figure class="card card--yoko" data-code="CAT-01">
-        <button type="button" class="card__img" data-full="images/CAT-01.jpg" data-fulltitle="おじゃまします" data-code="CAT-01" aria-label="おじゃまします を大きく見る"><img src="images/CAT-01.jpg" alt="猫の絵「おじゃまします」" loading="lazy" width="1500" height="964"></button>
+        <button type="button" class="card__img" data-full="images/CAT-01.jpg" data-fulltitle="おじゃまします" data-code="CAT-01" aria-label="おじゃまします を大きく見る"><img src="images/CAT-01.jpg" alt="猫の絵「おじゃまします」" loading="lazy" width="1500" height="1022"></button>
         <figcaption class="card__body">
           <p class="card__title">おじゃまします</p>
           <div class="card__meta">
@@ -716,7 +741,7 @@ footer {
         </figcaption>
       </figure>
       <figure class="card card--tate" data-code="CAT-13">
-        <button type="button" class="card__img" data-full="images/CAT-13.jpg" data-fulltitle="にゃ〜〜" data-code="CAT-13" aria-label="にゃ〜〜 を大きく見る"><img src="images/CAT-13.jpg" alt="猫の絵「にゃ〜〜」" loading="lazy" width="1119" height="1500"></button>
+        <button type="button" class="card__img" data-full="images/CAT-13.jpg" data-fulltitle="にゃ〜〜" data-code="CAT-13" aria-label="にゃ〜〜 を大きく見る"><img src="images/CAT-13.jpg" alt="猫の絵「にゃ〜〜」" loading="lazy" width="1091" height="1500"></button>
         <figcaption class="card__body">
           <p class="card__title">にゃ〜〜</p>
           <div class="card__meta">
@@ -1108,8 +1133,19 @@ footer {
         <textarea id="message" name="message" placeholder="ご質問やご要望がありましたらご記入ください"></textarea>
       </div>
 
-      <button type="submit" class="submit">この内容で申し込む</button>
-      <p class="form__note">送信ボタンを押すと、ご入力内容を差し込んだメールが立ち上がります。そのままお送りください。<br>うまく立ち上がらない場合は、お手数ですが <a href="mailto:kumiko1129nabe@yahoo.co.jp">kumiko1129nabe@yahoo.co.jp</a> まで直接ご連絡ください。</p>
+      <button type="submit" class="submit">お申し込み内容をつくる</button>
+      <p class="form__note">押すと、下にお申し込み内容が表示されます。メールアプリで送るか、内容をコピーしてお送りください。</p>
+
+      <div class="result hidden" id="result">
+        <p class="result__head">この内容でお申し込みください</p>
+        <textarea class="result__text" id="resultText" readonly rows="12"></textarea>
+        <div class="result__btns">
+          <button type="button" class="result__btn result__btn--main" id="btnCopy">内容をコピーする</button>
+          <a class="result__btn" id="btnMail" href="#">メールアプリで送る</a>
+        </div>
+        <p class="result__to">送り先　<a href="mailto:kumiko1129nabe@yahoo.co.jp" id="mailToText">kumiko1129nabe@yahoo.co.jp</a></p>
+        <p class="result__note">「内容をコピーする」を押してから、お使いのメールアプリ（Gmail・Yahooメールなど）を開き、上の宛先に貼り付けてお送りください。<br>「メールアプリで送る」が反応しない場合は、コピーしてお送りいただく方が確実です。</p>
+      </div>
     </form>
   </div>
 </section>
@@ -1257,9 +1293,38 @@ footer {
     L.push("【ご連絡事項】" + val("message"));
     var body = L.join("\n");
     var subject = "【お申し込み】" + kind + "／" + val("name") + "様";
-    location.href = "mailto:" + MAIL_TO
+
+    var box = document.getElementById("result");
+    document.getElementById("resultText").value = body;
+    document.getElementById("btnMail").href = "mailto:" + MAIL_TO
       + "?subject=" + encodeURIComponent(subject)
       + "&body=" + encodeURIComponent(body);
+    box.classList.remove("hidden");
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  /* ---- 内容をコピー ---- */
+  var btnCopy = document.getElementById("btnCopy");
+  btnCopy.addEventListener("click", function () {
+    var ta = document.getElementById("resultText");
+    var done = function () {
+      btnCopy.textContent = "コピーしました";
+      btnCopy.classList.add("result__btn--done");
+      setTimeout(function () {
+        btnCopy.textContent = "内容をコピーする";
+        btnCopy.classList.remove("result__btn--done");
+      }, 2600);
+    };
+    var fallback = function () {
+      ta.select(); ta.setSelectionRange(0, 99999);
+      try { document.execCommand("copy"); done(); }
+      catch (e) { alert("うまくコピーできませんでした。文面を長押しして選び、コピーしてください。"); }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(ta.value).then(done, fallback);
+    } else {
+      fallback();
+    }
   });
 
   /* ---- 作品の拡大表示 ---- */
