@@ -231,6 +231,33 @@ section { padding: 60px 0; }
 }
 .selected-box__list li span { color: #8a4b3c; }
 
+/* ============ 次の一歩の案内 ============ */
+.nextstep {
+  max-width: 720px; margin: 6px auto 0;
+  background: #fff; border: 2px solid #c7a294;
+  padding: 26px 24px; text-align: center;
+}
+.nextstep__lead {
+  margin: 0 0 10px; font-size: 17px; font-weight: 700; color: #1f1b18; line-height: 1.7;
+}
+.nextstep__lead strong { color: #8a4b3c; font-weight: 700; }
+.nextstep__count {
+  margin: 0 0 16px; font-size: 15px; font-weight: 700; color: #6d6156;
+}
+.nextstep__count.is-on { color: #8a4b3c; }
+.nextstep__btn {
+  display: inline-block; min-width: 260px;
+  padding: 15px 28px; border-radius: 2px;
+  background: #8a4b3c; color: #fff; text-decoration: none;
+  font-size: 16px; font-weight: 700; letter-spacing: .08em;
+}
+.nextstep__btn:hover { background: #743d31; }
+.nextstep__sub {
+  margin: 18px 0 0; padding-top: 16px; border-top: 1px dotted #ddd3c6;
+  font-size: 13px; font-weight: 400; color: #7d7166; line-height: 1.8;
+}
+.sp-br { display: none; }
+
 /* ============ オーダーメイド ============ */
 .order { background: #f1ece3; border-top: 1px solid #e5ded4; }
 .order__box {
@@ -492,6 +519,12 @@ footer {
   .series__head { font-size: 17px; }
   .series { margin-bottom: 42px; }
 
+  .nextstep { padding: 20px 16px; }
+  .nextstep__lead { font-size: 15.5px; }
+  .nextstep__count { font-size: 14px; }
+  .nextstep__btn { min-width: 0; width: 100%; padding: 14px 16px; font-size: 15px; }
+  .nextstep__sub { font-size: 12.5px; }
+  .sp-br { display: inline; }
   .terms, .order__box { padding: 18px 16px; }
   .terms li { font-size: 14px; }
   .order__list div { flex-direction: column; gap: 2px; }
@@ -1054,6 +1087,13 @@ footer {
       </figure>
       </div>
     </div>
+
+    <div class="nextstep">
+      <p class="nextstep__lead">絵をお選びいただいた方は、<br class="sp-br">このまま下の<strong>「お申し込み」</strong>へお進みください。</p>
+      <p class="nextstep__count" id="nextCount">まだ作品が選ばれていません</p>
+      <a class="nextstep__btn" href="#entry">お申し込みへ進む</a>
+      <p class="nextstep__sub">この下は「ご自分のペットの絵を描いてほしい方」へのご案内です。<br>作品をお選びの方は読み飛ばしていただいて構いません。</p>
+    </div>
   </div>
 </section>
 
@@ -1228,6 +1268,16 @@ footer {
     } else {
       emptyEl.classList.remove("hidden");
       totalEl.classList.add("hidden");
+    }
+    var nx = document.getElementById("nextCount");
+    if (nx) {
+      if (n) {
+        nx.textContent = "いま " + n + "点 お選びです（合計 " + (n * PRICE).toLocaleString() + "円）";
+        nx.classList.add("is-on");
+      } else {
+        nx.textContent = "まだ作品が選ばれていません";
+        nx.classList.remove("is-on");
+      }
     }
   }
   function find(code) {
