@@ -342,9 +342,33 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #c7a294; outline-
   padding: 12px; font-family: inherit; font-size: 14px; font-weight: 400;
   line-height: 1.8; color: #2b2724; resize: vertical;
 }
-.result__btns { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.result__steps { margin: 16px 0 0; padding: 0; list-style: none; counter-reset: st; }
+.result__steps > li { margin-bottom: 16px; }
+.result__steps > li:last-child { margin-bottom: 0; }
+.result__steplabel {
+  display: block; margin-bottom: 8px;
+  font-size: 15px; font-weight: 700; color: #1f1b18; line-height: 1.7;
+}
+.result__mail { display: block; }
+.result__copymail, .footer__copymail {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 12px 20px; cursor: pointer;
+  background: #fff; border: 1px solid #c7a294; border-radius: 2px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px; font-weight: 700; color: #8a4b3c;
+  word-break: break-all; text-align: center;
+}
+.result__copymail:hover, .footer__copymail:hover { background: #fbf5f2; }
+.result__copyhint {
+  font-family: inherit; font-size: 11px; font-weight: 400; color: #8a7d70; letter-spacing: .02em;
+}
+.result__alt { margin-top: 20px; padding-top: 16px; border-top: 1px dashed #d7cec1; }
+.result__alt summary {
+  cursor: pointer; font-size: 13px; font-weight: 400; color: #6d6156; margin-bottom: 12px;
+}
+.result__alt .result__btn { display: block; width: 100%; }
 .result__btn {
-  flex: 1 1 200px; text-align: center; text-decoration: none;
+  display: block; width: 100%; text-align: center; text-decoration: none;
   padding: 14px 16px; border-radius: 2px; cursor: pointer;
   font-family: inherit; font-size: 15px; font-weight: 700; letter-spacing: .04em;
   background: #fff; color: #8a4b3c; border: 1px solid #c7a294;
@@ -368,14 +392,7 @@ footer {
   color: #1f1b18; letter-spacing: .12em;
 }
 .footer__mail { margin: 0 0 12px; }
-.footer__mail a {
-  display: inline-block; padding: 11px 22px;
-  background: #fff; border: 1px solid #c7a294; border-radius: 2px;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px; font-weight: 700; color: #8a4b3c;
-  text-decoration: none; word-break: break-all;
-}
-.footer__mail a:hover { background: #8a4b3c; color: #fff; }
+.footer__copymail { font-size: 15px; }
 .footer__note { margin: 0 0 22px; font-size: 13px; font-weight: 400; color: #6d6156; line-height: 1.8; }
 .footer__name {
   margin: 0; padding-top: 18px; border-top: 1px solid #e0d8cc;
@@ -1139,12 +1156,18 @@ footer {
       <div class="result hidden" id="result">
         <p class="result__head">この内容でお申し込みください</p>
         <textarea class="result__text" id="resultText" readonly rows="12"></textarea>
-        <div class="result__btns">
-          <button type="button" class="result__btn result__btn--main" id="btnCopy">内容をコピーする</button>
+        <ol class="result__steps">
+          <li><button type="button" class="result__btn result__btn--main" id="btnCopy">① 内容をコピーする</button></li>
+          <li>
+            <span class="result__steplabel">② お使いのメールアプリを開いて、下の宛先に貼り付けて送信</span>
+            <span class="result__mail"><button type="button" class="result__copymail" id="btnCopyMail">kumiko1129nabe@yahoo.co.jp<span class="result__copyhint">押すとアドレスをコピー</span></button></span>
+          </li>
+        </ol>
+        <details class="result__alt">
+          <summary>メールアプリを直接ひらく（うまく開かない場合があります）</summary>
           <a class="result__btn" id="btnMail" href="#">メールアプリで送る</a>
-        </div>
-        <p class="result__to">送り先　<a href="mailto:kumiko1129nabe@yahoo.co.jp" id="mailToText">kumiko1129nabe@yahoo.co.jp</a></p>
-        <p class="result__note">「内容をコピーする」を押してから、お使いのメールアプリ（Gmail・Yahooメールなど）を開き、上の宛先に貼り付けてお送りください。<br>「メールアプリで送る」が反応しない場合は、コピーしてお送りいただく方が確実です。</p>
+          <p class="result__note">端末にメールの設定がないと、この方法では送れません。その場合は上の①②でお送りください。</p>
+        </details>
       </div>
     </form>
   </div>
@@ -1163,8 +1186,8 @@ footer {
 <footer>
   <div class="wrap">
     <p class="footer__label">お問い合わせ</p>
-    <p class="footer__mail"><a href="mailto:kumiko1129nabe@yahoo.co.jp?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E6%B8%A1%E9%82%89%E7%9B%B4%E4%BA%BA%E4%BD%9C%E5%93%81%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%AA%E3%83%BC%EF%BC%89">kumiko1129nabe@yahoo.co.jp</a></p>
-    <p class="footer__note">絵のこと、オーダーメイドのこと、どうぞお気軽にご連絡ください。<br>上のアドレスを押していただくと、メールが立ち上がります。</p>
+    <p class="footer__mail"><button type="button" class="footer__copymail" id="btnCopyFooter">kumiko1129nabe@yahoo.co.jp<span class="result__copyhint">押すとアドレスをコピー</span></button></p>
+    <p class="footer__note">絵のこと、オーダーメイドのこと、どうぞお気軽にご連絡ください。<br>上のアドレスを押すとコピーできます。お使いのメールアプリに貼り付けてお送りください。</p>
     <p class="footer__name"><ruby>渡邉<rt>わたなべ</rt></ruby><ruby>直人<rt>なおと</rt></ruby>　作品ギャラリー</p>
   </div>
 </footer>
@@ -1308,10 +1331,10 @@ footer {
   btnCopy.addEventListener("click", function () {
     var ta = document.getElementById("resultText");
     var done = function () {
-      btnCopy.textContent = "コピーしました";
+      btnCopy.textContent = "① コピーしました";
       btnCopy.classList.add("result__btn--done");
       setTimeout(function () {
-        btnCopy.textContent = "内容をコピーする";
+        btnCopy.textContent = "① 内容をコピーする";
         btnCopy.classList.remove("result__btn--done");
       }, 2600);
     };
@@ -1326,6 +1349,33 @@ footer {
       fallback();
     }
   });
+
+  /* ---- メールアドレスをコピー ---- */
+  function bindCopyMail(id) {
+    var b = document.getElementById(id);
+    if (!b) return;
+    var hint = b.querySelector(".result__copyhint");
+    b.addEventListener("click", function () {
+      var t = MAIL_TO;
+      var done = function () {
+        if (hint) {
+          hint.textContent = "コピーしました";
+          hint.style.color = "#4f7a52";
+          setTimeout(function () { hint.textContent = "押すとアドレスをコピー"; hint.style.color = ""; }, 2600);
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(done, function () {});
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = t; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    });
+  }
+  bindCopyMail("btnCopyMail");
+  bindCopyMail("btnCopyFooter");
 
   /* ---- 作品の拡大表示 ---- */
   var thumbs = [].slice.call(document.querySelectorAll(".card__img"));
