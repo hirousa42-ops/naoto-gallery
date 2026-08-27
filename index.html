@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>渡邉直人 作品ギャラリー｜猫と犬の絵</title>
+<meta name="description" content="渡邉直人が描く猫と犬の絵。1枚1,500円（税込・送料込、額縁付き）。あなたのペットの絵を描くオーダーメイドも承ります。">
+<style>
+/* ============ 基本 ============ */
+html { font-size: 16px; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #faf8f4;
+  color: #2b2724;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "游明朝", serif;
+  font-size: 16px;
+  line-height: 1.9;
+  -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; height: auto; display: block; }
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* ============ ヒーロー ============ */
+.hero {
+  background: #f1ece3;
+  padding: 56px 0 48px;
+  text-align: center;
+  border-bottom: 1px solid #e5ded4;
+}
+.hero__img {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto 28px;
+  background: #fff;
+  padding: 18px;
+  border: 1px solid #e0d8cc;
+  box-shadow: 0 10px 30px rgba(70,55,40,.10);
+}
+.hero__title {
+  margin: 0 0 10px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1f1b18;
+  letter-spacing: .12em;
+  line-height: 1.5;
+}
+.hero__sub {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: #6d6156;
+  letter-spacing: .08em;
+}
+
+/* ============ ふりがな ============ */
+ruby { ruby-position: over; }
+rt {
+  font-size: .42em; font-weight: 400; color: #7d7166;
+  letter-spacing: .04em; line-height: 1.2;
+  transform: translateY(2px);
+}
+.hero__title rt { color: #7d7166; }
+.profile__name rt { letter-spacing: .1em; }
+
+/* ============ セクション ============ */
+section { padding: 60px 0; }
+.sec-title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f1b18;
+  letter-spacing: .1em;
+  text-align: center;
+}
+.sec-lead {
+  margin: 0 0 36px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6d6156;
+  text-align: center;
+  letter-spacing: .06em;
+}
+
+/* ============ 作家紹介 ============ */
+.profile { background: #fff; border-top: 1px solid #e5ded4; border-bottom: 1px solid #e5ded4; }
+.profile__name {
+  margin: 0 0 28px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f1b18;
+  text-align: center;
+  letter-spacing: .3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.profile__logo {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(70,55,40,.14);
+}
+.profile__body { max-width: 720px; margin: 0 auto; }
+.profile__body p { margin: 0 0 18px; font-size: 15px; font-weight: 400; color: #2b2724; }
+.profile__quote {
+  margin-top: 26px;
+  padding-left: 16px;
+  border-left: 3px solid #8a4b3c;
+  color: #6b4034;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* ============ 販売条件 ============ */
+.terms {
+  max-width: 720px;
+  margin: 0 auto 44px;
+  background: #fff;
+  border: 1px solid #e0d8cc;
+  padding: 22px 24px;
+}
+.terms__title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f1b18;
+  letter-spacing: .08em;
+}
+.terms ul { margin: 0; padding-left: 1.2em; }
+.terms li { font-size: 15px; font-weight: 400; margin-bottom: 6px; }
+.terms strong { color: #8a4b3c; font-weight: 700; }
+.terms__notice {
+  margin-top: 18px; padding: 16px 18px;
+  background: #f7f2ea; border: 1px solid #d9c9b2;
+  border-left: 4px solid #8a4b3c;
+}
+.terms__notice-head {
+  margin: 0 0 8px; font-size: 15px; font-weight: 700; color: #8a4b3c;
+  letter-spacing: .04em;
+}
+.terms__notice p { margin: 0 0 8px; font-size: 14px; font-weight: 400; line-height: 1.8; }
+.terms__notice p:last-child { margin-bottom: 0; }
+.terms__notice-link a { color: #8a4b3c; font-weight: 700; }
+
+/* ============ 作品グリッド ============ */
+.series { margin-bottom: 56px; }
+.series__head {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f1b18;
+  letter-spacing: .12em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d9cfc0;
+}
+.series__note { margin: 0 0 26px; font-size: 13px; font-weight: 400; color: #7d7166; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px 22px;
+}
+.card {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #e2dacd;
+  padding: 14px 14px 0;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.card:hover { box-shadow: 0 8px 22px rgba(70,55,40,.12); transform: translateY(-2px); }
+.card.is-selected { border-color: #8a4b3c; box-shadow: 0 0 0 2px rgba(138,75,60,.28); }
+.card__img {
+  background: #f6f2ea;
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.card--tate .card__img { aspect-ratio: 3 / 4; }
+.card__img img { width: 100%; height: 100%; object-fit: contain; }
+.card__body { padding: 12px 0 14px; }
+.card__title {
+  margin: 0 0 8px;
+  font-size: 15px; font-weight: 700; color: #1f1b18;
+  line-height: 1.5; letter-spacing: .04em;
+}
+.card__meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.card__code {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px; font-weight: 700; color: #8a7d70; letter-spacing: .08em;
+}
+.card__price { font-size: 14px; font-weight: 700; color: #1f1b18; margin-right: auto; }
+.card__btn {
+  font-family: inherit;
+  font-size: 13px; font-weight: 700;
+  color: #8a4b3c; background: #fff;
+  border: 1px solid #c7a294; border-radius: 2px;
+  padding: 6px 12px; cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.card__btn:hover { background: #8a4b3c; color: #fff; }
+.card.is-selected .card__btn { background: #8a4b3c; color: #fff; border-color: #8a4b3c; }
+
+/* ============ オーダーメイド ============ */
+.order { background: #f1ece3; border-top: 1px solid #e5ded4; }
+.order__box {
+  max-width: 720px; margin: 0 auto;
+  background: #fff; border: 1px solid #e0d8cc; padding: 30px 28px;
+}
+.order__list { margin: 0; padding: 0; list-style: none; }
+.order__list div {
+  display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dotted #ddd3c6;
+  font-size: 15px; font-weight: 400;
+}
+.order__list div:last-child { border-bottom: none; }
+.order__list dt { width: 6.5em; flex-shrink: 0; font-weight: 700; color: #6d6156; }
+.order__list dd { margin: 0; }
+.order__price { color: #8a4b3c; font-weight: 700; }
+.flow { counter-reset: step; margin: 0; padding: 0; list-style: none; }
+.flow li {
+  position: relative; counter-increment: step;
+  padding: 0 0 22px 46px; margin: 0;
+  border-left: 2px solid #e0d8cc;
+  font-size: 15px; font-weight: 400;
+}
+.flow li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.flow li::before {
+  content: counter(step);
+  position: absolute; left: -16px; top: -2px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #8a4b3c; color: #fff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow__head { display: block; font-weight: 700; color: #1f1b18; margin-bottom: 2px; }
+.flow--branch li::before { background: #6d6156; }
+.order__case {
+  margin-top: 12px; padding: 16px 18px;
+  border: 1px solid #e0d8cc; background: #fbf9f5;
+}
+.order__case + .order__case { margin-top: 12px; }
+.order__case h4 {
+  margin: 0 0 8px; font-size: 15px; font-weight: 700; color: #1f1b18;
+}
+.order__case p { margin: 0; font-size: 15px; font-weight: 400; }
+.order__case--ok { border-left: 4px solid #8a4b3c; }
+.order__case--ng { border-left: 4px solid #a89a8b; }
+.order__caution {
+  margin-top: 18px; padding: 14px 16px;
+  background: #f5efe7; border: 1px dashed #c9b8a4;
+  font-size: 14px; font-weight: 400; color: #5d5248;
+}
+
+/* ============ フォーム ============ */
+.form { background: #fff; border-top: 1px solid #e5ded4; }
+.form__box { max-width: 720px; margin: 0 auto; }
+.field { margin-bottom: 22px; }
+.field > label, .field__label {
+  display: block; margin-bottom: 7px;
+  font-size: 14px; font-weight: 700; color: #1f1b18; letter-spacing: .06em;
+}
+.req {
+  display: inline-block; margin-left: 8px; padding: 1px 7px;
+  background: #8a4b3c; color: #fff; font-size: 11px; font-weight: 700;
+  border-radius: 2px; letter-spacing: .04em; vertical-align: 2px;
+}
+input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+  width: 100%; padding: 11px 12px;
+  font-family: inherit; font-size: 16px; font-weight: 400; color: #2b2724;
+  background: #fdfcfa; border: 1px solid #d7cec1; border-radius: 2px;
+  line-height: 1.6;
+}
+textarea { min-height: 110px; resize: vertical; }
+input:focus, textarea:focus, select:focus { outline: 2px solid #c7a294; outline-offset: 1px; }
+.choice { display: flex; flex-direction: column; gap: 10px; }
+.choice label {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 16px; border: 1px solid #d7cec1; background: #fdfcfa;
+  font-size: 15px; font-weight: 400; cursor: pointer;
+}
+.choice input { margin-top: 5px; }
+.choice label:has(input:checked) { border-color: #8a4b3c; background: #fbf5f2; }
+.selected-box {
+  background: #f6f2ea; border: 1px solid #e0d8cc; padding: 16px 18px;
+  font-size: 14px; font-weight: 400;
+}
+.selected-box__list { margin: 0 0 10px; padding: 0; list-style: none; }
+.selected-box__list li {
+  display: inline-block; margin: 0 6px 6px 0; padding: 5px 11px;
+  background: #fff; border: 1px solid #d7cec1;
+  font-size: 13px; font-weight: 700; color: #2b2724;
+}
+.selected-box__total { font-size: 15px; font-weight: 700; color: #1f1b18; }
+.selected-box__empty { color: #8a7d70; }
+.submit {
+  display: block; width: 100%; margin-top: 10px; padding: 16px;
+  font-family: inherit; font-size: 17px; font-weight: 700; letter-spacing: .1em;
+  color: #fff; background: #8a4b3c; border: none; border-radius: 2px; cursor: pointer;
+}
+.submit:hover { background: #743d31; }
+.form__note { margin-top: 14px; font-size: 13px; font-weight: 400; color: #7d7166; }
+.hidden { display: none; }
+
+/* ============ フッター ============ */
+footer {
+  background: #efe9df; border-top: 1px solid #e0d8cc;
+  padding: 44px 0 34px; text-align: center;
+  font-size: 13px; font-weight: 400; color: #6d6156;
+}
+.footer__label {
+  margin: 0 0 10px; font-size: 15px; font-weight: 700;
+  color: #1f1b18; letter-spacing: .12em;
+}
+.footer__mail { margin: 0 0 12px; }
+.footer__mail a {
+  display: inline-block; padding: 11px 22px;
+  background: #fff; border: 1px solid #c7a294; border-radius: 2px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px; font-weight: 700; color: #8a4b3c;
+  text-decoration: none; word-break: break-all;
+}
+.footer__mail a:hover { background: #8a4b3c; color: #fff; }
+.footer__note { margin: 0 0 22px; font-size: 13px; font-weight: 400; color: #6d6156; line-height: 1.8; }
+.footer__name {
+  margin: 0; padding-top: 18px; border-top: 1px solid #e0d8cc;
+  font-size: 13px; font-weight: 400; color: #7d7166; letter-spacing: .1em;
+}
+
+/* ============ 拡大表示 ============ */
+.card__img {
+  border: none; width: 100%; cursor: zoom-in;
+  padding: 0; font: inherit; color: inherit;
+}
+.lb {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(26,22,19,.94);
+  display: flex; align-items: center; justify-content: center;
+  padding: 56px 16px 84px;
+}
+.lb[hidden] { display: none; }
+.lb__inner {
+  margin: 0; max-width: 100%; max-height: 100%;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.lb__inner img {
+  max-width: 100%; max-height: calc(100vh - 172px);
+  width: auto; height: auto;
+  background: #fff; padding: 10px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.5);
+}
+.lb__cap {
+  color: #f4efe7; text-align: center;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.lb__cap span:first-child { font-size: 17px; font-weight: 700; letter-spacing: .06em; }
+.lb__code {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px; font-weight: 700; color: #b3a695; letter-spacing: .1em;
+}
+.lb__close, .lb__nav {
+  position: absolute; z-index: 2;
+  background: rgba(255,255,255,.10); color: #fff;
+  border: 1px solid rgba(255,255,255,.28); border-radius: 50%;
+  cursor: pointer; font-family: inherit; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.lb__close { top: 14px; right: 14px; width: 44px; height: 44px; font-size: 18px; }
+.lb__nav { top: 50%; transform: translateY(-50%); width: 48px; height: 48px; font-size: 30px; padding-bottom: 4px; }
+.lb__nav--prev { left: 12px; }
+.lb__nav--next { right: 12px; }
+.lb__close:hover, .lb__nav:hover { background: rgba(255,255,255,.22); }
+
+/* ============ レスポンシブ ============ */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 20px 16px; }
+}
+@media (max-width: 560px) {
+  .wrap { padding: 0 16px; }
+  .hero { padding: 34px 0 30px; }
+  .hero__img { max-width: 250px; padding: 12px; margin-bottom: 22px; }
+  .hero__title { font-size: 22px; line-height: 1.35; }
+  .hero__name { display: block; }
+  .hero__gallery { display: block; font-size: 17px; letter-spacing: .18em; margin-top: 6px; }
+  section { padding: 42px 0; }
+  .sec-title { font-size: 19px; }
+  .sec-lead { margin-bottom: 26px; }
+  .profile__name { font-size: 19px; gap: 12px; margin-bottom: 22px; }
+  .profile__logo { width: 48px; height: 48px; }
+  .profile__body p { font-size: 14.5px; line-height: 1.95; }
+
+  /* 作品は2列。タップで大きく見られます */
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 14px 12px; }
+  .card { padding: 8px 8px 0; }
+  .card__body { padding: 8px 0 10px; }
+  .card__title { font-size: 13px; margin-bottom: 5px; line-height: 1.45; }
+  .card__meta { gap: 5px; }
+  .card__code { font-size: 10px; }
+  .card__price { font-size: 12px; }
+  .card__btn { font-size: 11px; padding: 5px 8px; width: 100%; margin-top: 2px; }
+  .series__head { font-size: 17px; }
+  .series { margin-bottom: 42px; }
+
+  .terms, .order__box { padding: 18px 16px; }
+  .terms li { font-size: 14px; }
+  .order__list div { flex-direction: column; gap: 2px; }
+  .order__list dt { width: auto; }
+  .flow li { padding-left: 38px; font-size: 14px; }
+  .flow li::before { width: 26px; height: 26px; font-size: 13px; left: -14px; }
+  .field { margin-bottom: 18px; }
+  .choice label { padding: 12px 13px; font-size: 14px; }
+  .footer__mail a { font-size: 14px; padding: 10px 16px; }
+
+  .lb { padding: 52px 10px 76px; }
+  .lb__inner img { max-height: calc(100vh - 158px); padding: 7px; }
+  .lb__nav { width: 42px; height: 42px; font-size: 26px; }
+  .lb__cap span:first-child { font-size: 15px; }
+}
+@media (max-width: 360px) {
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero__img"><img src="images/CAT-23.jpg" alt="黒猫クロの絵"></div>
+    <h1 class="hero__title"><span class="hero__name"><ruby>渡邉<rt>わたなべ</rt></ruby><ruby>直人<rt>なおと</rt></ruby></span><span class="hero__gallery">作品ギャラリー</span></h1>
+    <p class="hero__sub">猫と犬の絵</p>
+  </div>
+</header>
+
+<section class="profile">
+  <div class="wrap">
+    <h2 class="sec-title">作家紹介</h2>
+    <p class="profile__name"><img class="profile__logo" src="images/logo.png" alt="" width="320" height="320"><span><ruby>渡邉<rt>わたなべ</rt></ruby>　<ruby>直人<rt>なおと</rt></ruby></span></p>
+    <div class="profile__body">
+      <p>小さい頃から、野良猫とはよく遊んでいた。</p>
+      <p>成人して今の場所に住むようになった頃、精神的にとてもしんどい時期が訪れる。眠れない夜、苦しい夜。そばに寄り添ってくれたのが野良猫だった。ベランダでタバコを吸っているとすぐにやってきて、膝の上に乗る。夜中に体を撫で、ブラッシングをしてやる。「あの時間にどれだけ助けられたかわかりません」。</p>
+      <p>その野良猫が、いつしかいつも傍らにとどまってくれるようになった。黒猫だった。「クロ」と名付けた。人懐っこく、油断すると家に上がり込んでこたつで丸くなっていた。1年ほど姿を消した後にひょっこり帰ってきて、それきり会えなくなった。最後のお別れを言いに来てくれたのかもしれない。</p>
+      <p>クロの眼差しには、何とも言えない優しさがあった。それに出会ったことが、黒猫を多く描く理由になっている。「絵を描いていたらいいよ」。妻のその一言にも支えられ、描き続けた作品は1,000点を超えた。クロに助けられて、今がある。</p>
+      <p class="profile__quote">「もし目の前に、かつての自分と同じように苦しんでいる人が現れたら、大丈夫だよと声をかけてあげたい」</p>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <h2 class="sec-title">作品のご紹介</h2>
+    <p class="sec-lead">全30点　猫23点・犬7点<br>絵を押すと大きくご覧いただけます</p>
+
+    <div class="terms">
+      <p class="terms__title">ご購入について</p>
+      <ul>
+        <li>サイズ　<strong>2L判</strong>（約13×18cm）</li>
+        <li>1枚 <strong>1,500円</strong>（税込・送料込）</li>
+        <li><strong>すべて額縁が付きます。</strong>お手元には額装した状態でお届けします</li>
+        <li>掲載写真は、額縁を外した絵の部分のみを掲載しています</li>
+        <li>お支払いは<strong>銀行振込</strong>（りそな銀行）です。お申し込みのあと、金額と振込先をメールでご案内します</li>
+        <li>恐れ入りますが、<strong>振込手数料はご負担ください</strong></li>
+        <li>気に入った作品の「この絵を選ぶ」を押すと、下のお申し込みフォームに反映されます</li>
+      </ul>
+
+      <div class="terms__notice">
+        <p class="terms__notice-head">こちらは原画ではありません</p>
+        <p>和紙のコピー用紙に印刷したものをお届けします。作品によりましては、高級写真用紙になる場合があります。</p>
+        <p>どちらの用紙にするかは、作品がより美しく仕上がるよう<strong>こちらで選ばせていただきます</strong>ので、あらかじめご了承ください。</p>
+        <p class="terms__notice-link">原画をご希望の方は、<a href="#order">ペットの絵のオーダーメイド</a>をご覧ください。</p>
+      </div>
+    </div>
+
+    <div class="series">
+      <h3 class="series__head">猫シリーズ　全23点</h3>
+      <p class="series__note">横向きの作品から順に並んでいます</p>
+      <div class="grid">
+      <figure class="card card--yoko" data-code="CAT-01">
+        <button type="button" class="card__img" data-full="images/CAT-01.jpg" data-fulltitle="おじゃまします" data-code="CAT-01" aria-label="おじゃまします を大きく見る"><img src="images/CAT-01.jpg" alt="猫の絵「おじゃまします」" loading="lazy" width="1500" height="1047"></button>
+        <figcaption class="card__body">
+          <p class="card__title">おじゃまします</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-01</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-01" data-title="おじゃまします">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-02">
+        <button type="button" class="card__img" data-full="images/CAT-02.jpg" data-fulltitle="にゃにか？" data-code="CAT-02" aria-label="にゃにか？ を大きく見る"><img src="images/CAT-02.jpg" alt="猫の絵「にゃにか？」" loading="lazy" width="1500" height="1051"></button>
+        <figcaption class="card__body">
+          <p class="card__title">にゃにか？</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-02</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-02" data-title="にゃにか？">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-03">
+        <button type="button" class="card__img" data-full="images/CAT-03.jpg" data-fulltitle="のぞき猫" data-code="CAT-03" aria-label="のぞき猫 を大きく見る"><img src="images/CAT-03.jpg" alt="猫の絵「のぞき猫」" loading="lazy" width="1500" height="1023"></button>
+        <figcaption class="card__body">
+          <p class="card__title">のぞき猫</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-03</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-03" data-title="のぞき猫">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-04">
+        <button type="button" class="card__img" data-full="images/CAT-04.jpg" data-fulltitle="アメ猫" data-code="CAT-04" aria-label="アメ猫 を大きく見る"><img src="images/CAT-04.jpg" alt="猫の絵「アメ猫」" loading="lazy" width="1500" height="1043"></button>
+        <figcaption class="card__body">
+          <p class="card__title">アメ猫</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-04</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-04" data-title="アメ猫">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-05">
+        <button type="button" class="card__img" data-full="images/CAT-05.jpg" data-fulltitle="居眠り猫ちゃん" data-code="CAT-05" aria-label="居眠り猫ちゃん を大きく見る"><img src="images/CAT-05.jpg" alt="猫の絵「居眠り猫ちゃん」" loading="lazy" width="1500" height="1106"></button>
+        <figcaption class="card__body">
+          <p class="card__title">居眠り猫ちゃん</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-05</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-05" data-title="居眠り猫ちゃん">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-06">
+        <button type="button" class="card__img" data-full="images/CAT-06.jpg" data-fulltitle="鈴木にゃいおん" data-code="CAT-06" aria-label="鈴木にゃいおん を大きく見る"><img src="images/CAT-06.jpg" alt="猫の絵「鈴木にゃいおん」" loading="lazy" width="1500" height="1050"></button>
+        <figcaption class="card__body">
+          <p class="card__title">鈴木にゃいおん</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-06</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-06" data-title="鈴木にゃいおん">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-07">
+        <button type="button" class="card__img" data-full="images/CAT-07.jpg" data-fulltitle="ごろりんこ" data-code="CAT-07" aria-label="ごろりんこ を大きく見る"><img src="images/CAT-07.jpg" alt="猫の絵「ごろりんこ」" loading="lazy" width="1500" height="1053"></button>
+        <figcaption class="card__body">
+          <p class="card__title">ごろりんこ</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-07</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-07" data-title="ごろりんこ">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-08">
+        <button type="button" class="card__img" data-full="images/CAT-08.jpg" data-fulltitle="黒猫ちゃん（ちぎり絵）" data-code="CAT-08" aria-label="黒猫ちゃん（ちぎり絵） を大きく見る"><img src="images/CAT-08.jpg" alt="猫の絵「黒猫ちゃん（ちぎり絵）」" loading="lazy" width="1500" height="1084"></button>
+        <figcaption class="card__body">
+          <p class="card__title">黒猫ちゃん（ちぎり絵）</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-08</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-08" data-title="黒猫ちゃん（ちぎり絵）">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-09">
+        <button type="button" class="card__img" data-full="images/CAT-09.jpg" data-fulltitle="夜のお散歩" data-code="CAT-09" aria-label="夜のお散歩 を大きく見る"><img src="images/CAT-09.jpg" alt="猫の絵「夜のお散歩」" loading="lazy" width="1500" height="960"></button>
+        <figcaption class="card__body">
+          <p class="card__title">夜のお散歩</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-09</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-09" data-title="夜のお散歩">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="CAT-10">
+        <button type="button" class="card__img" data-full="images/CAT-10.jpg" data-fulltitle="シャム猫のジャム" data-code="CAT-10" aria-label="シャム猫のジャム を大きく見る"><img src="images/CAT-10.jpg" alt="猫の絵「シャム猫のジャム」" loading="lazy" width="1500" height="1072"></button>
+        <figcaption class="card__body">
+          <p class="card__title">シャム猫のジャム</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-10</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-10" data-title="シャム猫のジャム">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-11">
+        <button type="button" class="card__img" data-full="images/CAT-11.jpg" data-fulltitle="おやつください" data-code="CAT-11" aria-label="おやつください を大きく見る"><img src="images/CAT-11.jpg" alt="猫の絵「おやつください」" loading="lazy" width="1066" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">おやつください</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-11</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-11" data-title="おやつください">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-12">
+        <button type="button" class="card__img" data-full="images/CAT-12.jpg" data-fulltitle="小福ちゃん" data-code="CAT-12" aria-label="小福ちゃん を大きく見る"><img src="images/CAT-12.jpg" alt="猫の絵「小福ちゃん」" loading="lazy" width="1146" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">小福ちゃん</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-12</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-12" data-title="小福ちゃん">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-13">
+        <button type="button" class="card__img" data-full="images/CAT-13.jpg" data-fulltitle="にゃ〜〜" data-code="CAT-13" aria-label="にゃ〜〜 を大きく見る"><img src="images/CAT-13.jpg" alt="猫の絵「にゃ〜〜」" loading="lazy" width="1075" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">にゃ〜〜</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-13</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-13" data-title="にゃ〜〜">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-14">
+        <button type="button" class="card__img" data-full="images/CAT-14.jpg" data-fulltitle="背伸び猫ちゃん" data-code="CAT-14" aria-label="背伸び猫ちゃん を大きく見る"><img src="images/CAT-14.jpg" alt="猫の絵「背伸び猫ちゃん」" loading="lazy" width="1075" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">背伸び猫ちゃん</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-14</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-14" data-title="背伸び猫ちゃん">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-15">
+        <button type="button" class="card__img" data-full="images/CAT-15.jpg" data-fulltitle="仲良し猫ちゃん" data-code="CAT-15" aria-label="仲良し猫ちゃん を大きく見る"><img src="images/CAT-15.jpg" alt="猫の絵「仲良し猫ちゃん」" loading="lazy" width="936" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">仲良し猫ちゃん</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-15</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-15" data-title="仲良し猫ちゃん">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-16">
+        <button type="button" class="card__img" data-full="images/CAT-16.jpg" data-fulltitle="おかえりなさい" data-code="CAT-16" aria-label="おかえりなさい を大きく見る"><img src="images/CAT-16.jpg" alt="猫の絵「おかえりなさい」" loading="lazy" width="928" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">おかえりなさい</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-16</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-16" data-title="おかえりなさい">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-17">
+        <button type="button" class="card__img" data-full="images/CAT-17.jpg" data-fulltitle="ここにいるよ" data-code="CAT-17" aria-label="ここにいるよ を大きく見る"><img src="images/CAT-17.jpg" alt="猫の絵「ここにいるよ」" loading="lazy" width="1063" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">ここにいるよ</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-17</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-17" data-title="ここにいるよ">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-18">
+        <button type="button" class="card__img" data-full="images/CAT-18.jpg" data-fulltitle="お迎え猫ちゃん" data-code="CAT-18" aria-label="お迎え猫ちゃん を大きく見る"><img src="images/CAT-18.jpg" alt="猫の絵「お迎え猫ちゃん」" loading="lazy" width="975" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">お迎え猫ちゃん</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-18</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-18" data-title="お迎え猫ちゃん">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-19">
+        <button type="button" class="card__img" data-full="images/CAT-19.jpg" data-fulltitle="失礼します" data-code="CAT-19" aria-label="失礼します を大きく見る"><img src="images/CAT-19.jpg" alt="猫の絵「失礼します」" loading="lazy" width="1103" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">失礼します</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-19</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-19" data-title="失礼します">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-20">
+        <button type="button" class="card__img" data-full="images/CAT-20.jpg" data-fulltitle="猫と風船" data-code="CAT-20" aria-label="猫と風船 を大きく見る"><img src="images/CAT-20.jpg" alt="猫の絵「猫と風船」" loading="lazy" width="1060" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">猫と風船</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-20</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-20" data-title="猫と風船">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-21">
+        <button type="button" class="card__img" data-full="images/CAT-21.jpg" data-fulltitle="猫旅（ちぎり絵）" data-code="CAT-21" aria-label="猫旅（ちぎり絵） を大きく見る"><img src="images/CAT-21.jpg" alt="猫の絵「猫旅（ちぎり絵）」" loading="lazy" width="1074" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">猫旅（ちぎり絵）</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-21</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-21" data-title="猫旅（ちぎり絵）">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-22">
+        <button type="button" class="card__img" data-full="images/CAT-22.jpg" data-fulltitle="舟屋の風景" data-code="CAT-22" aria-label="舟屋の風景 を大きく見る"><img src="images/CAT-22.jpg" alt="猫の絵「舟屋の風景」" loading="lazy" width="971" height="1374"></button>
+        <figcaption class="card__body">
+          <p class="card__title">舟屋の風景</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-22</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-22" data-title="舟屋の風景">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="CAT-23">
+        <button type="button" class="card__img" data-full="images/CAT-23.jpg" data-fulltitle="にゃにかご用？" data-code="CAT-23" aria-label="にゃにかご用？ を大きく見る"><img src="images/CAT-23.jpg" alt="猫の絵「にゃにかご用？」" loading="lazy" width="1108" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">にゃにかご用？</p>
+          <div class="card__meta">
+            <span class="card__code">CAT-23</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="CAT-23" data-title="にゃにかご用？">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      </div>
+    </div>
+
+    <div class="series">
+      <h3 class="series__head">犬シリーズ　全7点</h3>
+      <p class="series__note">横向きの作品から順に並んでいます</p>
+      <div class="grid">
+      <figure class="card card--yoko" data-code="DOG-01">
+        <button type="button" class="card__img" data-full="images/DOG-01.jpg" data-fulltitle="Yeah〜（イエーイ〜）" data-code="DOG-01" aria-label="Yeah〜（イエーイ〜） を大きく見る"><img src="images/DOG-01.jpg" alt="犬の絵「Yeah〜（イエーイ〜）」" loading="lazy" width="1500" height="1075"></button>
+        <figcaption class="card__body">
+          <p class="card__title">Yeah〜（イエーイ〜）</p>
+          <div class="card__meta">
+            <span class="card__code">DOG-01</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="DOG-01" data-title="Yeah〜（イエーイ〜）">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="DOG-02">
+        <button type="button" class="card__img" data-full="images/DOG-02.jpg" data-fulltitle="茶太郎君" data-code="DOG-02" aria-label="茶太郎君 を大きく見る"><img src="images/DOG-02.jpg" alt="犬の絵「茶太郎君」" loading="lazy" width="1500" height="1118"></button>
+        <figcaption class="card__body">
+          <p class="card__title">茶太郎君</p>
+          <div class="card__meta">
+            <span class="card__code">DOG-02</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="DOG-02" data-title="茶太郎君">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="DOG-03">
+        <button type="button" class="card__img" data-full="images/DOG-03.jpg" data-fulltitle="ご挨拶" data-code="DOG-03" aria-label="ご挨拶 を大きく見る"><img src="images/DOG-03.jpg" alt="犬の絵「ご挨拶」" loading="lazy" width="1500" height="993"></button>
+        <figcaption class="card__body">
+          <p class="card__title">ご挨拶</p>
+          <div class="card__meta">
+            <span class="card__code">DOG-03</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="DOG-03" data-title="ご挨拶">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="DOG-04">
+        <button type="button" class="card__img" data-full="images/DOG-04.jpg" data-fulltitle="散歩まだ？" data-code="DOG-04" aria-label="散歩まだ？ を大きく見る"><img src="images/DOG-04.jpg" alt="犬の絵「散歩まだ？」" loading="lazy" width="1500" height="1064"></button>
+        <figcaption class="card__body">
+          <p class="card__title">散歩まだ？</p>
+          <div class="card__meta">
+            <span class="card__code">DOG-04</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="DOG-04" data-title="散歩まだ？">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--yoko" data-code="DOG-05">
+        <button type="button" class="card__img" data-full="images/DOG-05.jpg" data-fulltitle="あったか〜い" data-code="DOG-05" aria-label="あったか〜い を大きく見る"><img src="images/DOG-05.jpg" alt="犬の絵「あったか〜い」" loading="lazy" width="1500" height="1036"></button>
+        <figcaption class="card__body">
+          <p class="card__title">あったか〜い</p>
+          <div class="card__meta">
+            <span class="card__code">DOG-05</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="DOG-05" data-title="あったか〜い">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="DOG-06">
+        <button type="button" class="card__img" data-full="images/DOG-06.jpg" data-fulltitle="春よ来い" data-code="DOG-06" aria-label="春よ来い を大きく見る"><img src="images/DOG-06.jpg" alt="犬の絵「春よ来い」" loading="lazy" width="993" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">春よ来い</p>
+          <div class="card__meta">
+            <span class="card__code">DOG-06</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="DOG-06" data-title="春よ来い">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card--tate" data-code="DOG-07">
+        <button type="button" class="card__img" data-full="images/DOG-07.jpg" data-fulltitle="ごちそうさま" data-code="DOG-07" aria-label="ごちそうさま を大きく見る"><img src="images/DOG-07.jpg" alt="犬の絵「ごちそうさま」" loading="lazy" width="1064" height="1500"></button>
+        <figcaption class="card__body">
+          <p class="card__title">ごちそうさま</p>
+          <div class="card__meta">
+            <span class="card__code">DOG-07</span>
+            <span class="card__price">1,500円</span>
+            <button type="button" class="card__btn" data-code="DOG-07" data-title="ごちそうさま">この絵を選ぶ</button>
+          </div>
+        </figcaption>
+      </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2 class="sec-title">自分のペット（犬・猫）の絵を描きます</h2>
+    <p class="sec-lead">お写真をお送りください。世界に一枚の絵をお描きします</p>
+    <div class="order__box">
+      <dl class="order__list">
+        <div><dt>サイズ</dt><dd>A4サイズ</dd></div>
+        <div><dt>お届けするもの</dt><dd><strong class="order__price">原画</strong>（描いた絵そのもの）を額縁に入れてお送りします</dd></div>
+        <div><dt>価格</dt><dd class="order__price">3万円以上</dd></div>
+        <div><dt>お申し込み</dt><dd>下のフォームで「自分のペットの絵を描いてほしい」をお選びください</dd></div>
+      </dl>
+
+      <h3 class="series__head" style="margin-top:28px; font-size:17px;">お届けまでの流れ</h3>
+      <ol class="flow">
+        <li><span class="flow__head">お写真をお送りください</span>お申し込みのあと、送り先をご案内します。</li>
+        <li><span class="flow__head">絵を描きます</span>お写真をもとに、A4サイズでお描きします。</li>
+        <li><span class="flow__head">できあがった絵を、一度ご覧いただきます</span>お支払いはこのあとです。ご覧いただいてからお決めください。</li>
+        <li><span class="flow__head">お気持ちをお聞かせください</span>
+          <div class="order__case order__case--ok">
+            <h4>気に入っていただけた場合</h4>
+            <p>原画を額縁に入れてお送りします。お支払いは<strong class="order__price">3万円以上</strong>。気に入っていただけた度合いに応じて、お客様が金額をお決めのうえお振り込みください。振込先（りそな銀行）は、この時点でメールにてご案内します。恐れ入りますが、振込手数料はご負担ください。</p>
+          </div>
+          <div class="order__case order__case--ng">
+            <h4>気に入らなかった場合</h4>
+            <p>キャンセルしていただけます。お支払いは不要です。</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="order__caution">※ キャンセルの場合、絵はお渡しできません。その原画は別の場所で販売させていただきますので、あらかじめご了承ください。</p>
+    </div>
+  </div>
+</section>
+
+<section class="form" id="entry">
+  <div class="wrap">
+    <h2 class="sec-title">お申し込み</h2>
+    <p class="sec-lead">作品のご購入も、オーダーメイドも、このフォームから承ります</p>
+    <form class="form__box" id="entryForm">
+
+      <div class="field">
+        <span class="field__label">ご希望の内容<span class="req">必須</span></span>
+        <div class="choice">
+          <label><input type="radio" name="kind" value="既存の絵を購入" checked><span>すでにある絵を選んで購入する（1枚 1,500円・税込送料込・額縁付き）</span></label>
+          <label><input type="radio" name="kind" value="オーダーメイド"><span>自分のペット（犬・猫）の絵を描いてほしい（A4サイズ・3万円以上）</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="blockBuy">
+        <span class="field__label">お選びいただいた作品</span>
+        <div class="selected-box">
+          <ul class="selected-box__list" id="selectedList"></ul>
+          <p class="selected-box__empty" id="selectedEmpty">上の作品一覧から「この絵を選ぶ」を押してください。</p>
+          <p class="selected-box__total hidden" id="selectedTotal"></p>
+        </div>
+      </div>
+
+      <div class="field hidden" id="blockOrder">
+        <label for="petInfo">ペットについて<span class="req">必須</span></label>
+        <textarea id="petInfo" name="petInfo" placeholder="犬か猫か、お名前、毛色や特徴、ご希望の枚数など"></textarea>
+        <p class="form__note">お写真は、お申し込み後にご案内する宛先までお送りください。できあがった絵を一度ご覧いただいてから、お支払いをお決めいただきます。気に入らなかった場合はキャンセルできますが、その原画は別の場所で販売させていただきます。</p>
+      </div>
+
+      <div class="field">
+        <label for="name">お名前<span class="req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="kana">ふりがな<span class="req">必須</span></label>
+        <input type="text" id="kana" name="kana" placeholder="ひらがなでご記入ください">
+      </div>
+
+      <div class="field">
+        <label for="email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="email" name="email" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="tel">電話番号</label>
+        <input type="tel" id="tel" name="tel" autocomplete="tel">
+      </div>
+
+      <div class="field">
+        <label for="address">お届け先ご住所<span class="req">必須</span></label>
+        <textarea id="address" name="address" placeholder="郵便番号・都道府県からご記入ください" autocomplete="street-address"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="message">ご連絡事項</label>
+        <textarea id="message" name="message" placeholder="ご質問やご要望がありましたらご記入ください"></textarea>
+      </div>
+
+      <button type="submit" class="submit">この内容で申し込む</button>
+      <p class="form__note">送信ボタンを押すと、ご入力内容を差し込んだメールが立ち上がります。そのままお送りください。<br>うまく立ち上がらない場合は、お手数ですが <a href="mailto:kumiko1129nabe@yahoo.co.jp">kumiko1129nabe@yahoo.co.jp</a> まで直接ご連絡ください。</p>
+    </form>
+  </div>
+</section>
+
+<div class="lb" id="lightbox" hidden>
+  <button type="button" class="lb__close" id="lbClose" aria-label="閉じる">✕</button>
+  <button type="button" class="lb__nav lb__nav--prev" id="lbPrev" aria-label="前の作品">‹</button>
+  <button type="button" class="lb__nav lb__nav--next" id="lbNext" aria-label="次の作品">›</button>
+  <figure class="lb__inner">
+    <img id="lbImg" src="" alt="">
+    <figcaption class="lb__cap"><span id="lbTitle"></span><span class="lb__code" id="lbCode"></span></figcaption>
+  </figure>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="footer__label">お問い合わせ</p>
+    <p class="footer__mail"><a href="mailto:kumiko1129nabe@yahoo.co.jp?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88%E6%B8%A1%E9%82%89%E7%9B%B4%E4%BA%BA%E4%BD%9C%E5%93%81%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%AA%E3%83%BC%EF%BC%89">kumiko1129nabe@yahoo.co.jp</a></p>
+    <p class="footer__note">絵のこと、オーダーメイドのこと、どうぞお気軽にご連絡ください。<br>上のアドレスを押していただくと、メールが立ち上がります。</p>
+    <p class="footer__name"><ruby>渡邉<rt>わたなべ</rt></ruby><ruby>直人<rt>なおと</rt></ruby>　作品ギャラリー</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ★ 申し込みの届け先。決まったらここを書き換えてください
+  var MAIL_TO = "kumiko1129nabe@yahoo.co.jp";
+  var PRICE = 1500;
+
+  var selected = [];   // {code, title}
+  var listEl = document.getElementById("selectedList");
+  var emptyEl = document.getElementById("selectedEmpty");
+  var totalEl = document.getElementById("selectedTotal");
+
+  function render() {
+    listEl.innerHTML = "";
+    selected.forEach(function (it) {
+      var li = document.createElement("li");
+      li.textContent = it.code + "　" + it.title;
+      listEl.appendChild(li);
+    });
+    if (selected.length) {
+      emptyEl.classList.add("hidden");
+      totalEl.classList.remove("hidden");
+      totalEl.textContent = selected.length + "点　合計 " + (selected.length * PRICE).toLocaleString() + "円（税込・送料込）";
+    } else {
+      emptyEl.classList.remove("hidden");
+      totalEl.classList.add("hidden");
+    }
+  }
+
+  document.querySelectorAll(".card__btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var code = btn.getAttribute("data-code");
+      var title = btn.getAttribute("data-title");
+      var card = btn.closest(".card");
+      var i = -1;
+      selected.forEach(function (x, n) { if (x.code === code) i = n; });
+      if (i >= 0) {
+        selected.splice(i, 1);
+        card.classList.remove("is-selected");
+        btn.textContent = "この絵を選ぶ";
+      } else {
+        selected.push({ code: code, title: title });
+        card.classList.add("is-selected");
+        btn.textContent = "選択中";
+      }
+      render();
+    });
+  });
+  render();
+
+  var blockBuy = document.getElementById("blockBuy");
+  var blockOrder = document.getElementById("blockOrder");
+  document.querySelectorAll('input[name="kind"]').forEach(function (r) {
+    r.addEventListener("change", function () {
+      var isOrder = document.querySelector('input[name="kind"]:checked').value === "オーダーメイド";
+      blockOrder.classList.toggle("hidden", !isOrder);
+      blockBuy.classList.toggle("hidden", isOrder);
+    });
+  });
+
+  function val(id) { return (document.getElementById(id).value || "").trim(); }
+
+  document.getElementById("entryForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var kind = document.querySelector('input[name="kind"]:checked').value;
+    var miss = [];
+    if (!val("name")) miss.push("お名前");
+    if (!val("kana")) miss.push("ふりがな");
+    if (!val("email")) miss.push("メールアドレス");
+    if (!val("address")) miss.push("お届け先ご住所");
+    if (kind === "オーダーメイド" && !val("petInfo")) miss.push("ペットについて");
+    if (kind === "既存の絵を購入" && selected.length === 0) miss.push("作品の選択");
+    if (miss.length) { alert("次の項目をご入力ください。\n\n・" + miss.join("\n・")); return; }
+
+    var L = [];
+    L.push("【ご希望の内容】" + kind);
+    if (kind === "既存の絵を購入") {
+      L.push("【お選びの作品】");
+      selected.forEach(function (it) { L.push("　" + it.code + "　" + it.title); });
+      L.push("【点数】" + selected.length + "点");
+      L.push("【合計金額】" + (selected.length * PRICE).toLocaleString() + "円（税込・送料込）");
+    } else {
+      L.push("【ペットについて】" + val("petInfo"));
+      L.push("【価格】A4サイズ 3万円以上（絵をご覧いただいてから金額をお決めいただきます）");
+    }
+    L.push("");
+    L.push("【お名前】" + val("name"));
+    L.push("【ふりがな】" + val("kana"));
+    L.push("【メールアドレス】" + val("email"));
+    L.push("【電話番号】" + val("tel"));
+    L.push("【ご住所】" + val("address"));
+    L.push("【ご連絡事項】" + val("message"));
+    var body = L.join("\n");
+    var subject = "【お申し込み】" + kind + "／" + val("name") + "様";
+    location.href = "mailto:" + MAIL_TO
+      + "?subject=" + encodeURIComponent(subject)
+      + "&body=" + encodeURIComponent(body);
+  });
+
+  /* ---- 作品の拡大表示 ---- */
+  var thumbs = [].slice.call(document.querySelectorAll(".card__img"));
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lbImg");
+  var lbTitle = document.getElementById("lbTitle");
+  var lbCode = document.getElementById("lbCode");
+  var cur = 0;
+  var lastFocus = null;
+
+  function show(i) {
+    if (i < 0) i = thumbs.length - 1;
+    if (i >= thumbs.length) i = 0;
+    cur = i;
+    var b = thumbs[i];
+    lbImg.src = b.getAttribute("data-full");
+    lbImg.alt = b.getAttribute("data-fulltitle");
+    lbTitle.textContent = b.getAttribute("data-fulltitle");
+    lbCode.textContent = b.getAttribute("data-code");
+  }
+  function open_(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+    document.getElementById("lbClose").focus();
+  }
+  function close_() {
+    lb.hidden = true;
+    lbImg.src = "";
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+
+  thumbs.forEach(function (b, i) {
+    b.addEventListener("click", function () { open_(i); });
+  });
+  document.getElementById("lbClose").addEventListener("click", close_);
+  document.getElementById("lbPrev").addEventListener("click", function () { show(cur - 1); });
+  document.getElementById("lbNext").addEventListener("click", function () { show(cur + 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) close_(); });
+  document.addEventListener("keydown", function (e) {
+    if (lb.hidden) return;
+    if (e.key === "Escape") close_();
+    else if (e.key === "ArrowLeft") show(cur - 1);
+    else if (e.key === "ArrowRight") show(cur + 1);
+  });
+  // スマホの左右スワイプ
+  var sx = null;
+  lb.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, {passive: true});
+  lb.addEventListener("touchend", function (e) {
+    if (sx === null) return;
+    var dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+    sx = null;
+  }, {passive: true});
+})();
+</script>
+
+</body>
+</html>
