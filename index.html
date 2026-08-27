@@ -357,12 +357,33 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #c7a294; outline-
 }
 .submit:hover { background: #743d31; }
 .form__note { margin-top: 14px; font-size: 13px; font-weight: 400; color: #7d7166; line-height: 1.8; }
+.sent {
+  margin-top: 26px; padding: 30px 24px 32px; text-align: center;
+  background: #f2f6f1; border: 2px solid #7ea37f;
+}
+.sent__mark {
+  margin: 0 auto 12px; width: 52px; height: 52px; border-radius: 50%;
+  background: #4f7a52; color: #fff; font-size: 27px; font-weight: 700;
+  line-height: 52px;
+}
+.sent__head {
+  margin: 0 0 12px; font-size: 20px; font-weight: 700; color: #2f4a31; letter-spacing: .06em;
+}
+.sent__body { margin: 0 0 18px; font-size: 15px; font-weight: 400; color: #2b2724; line-height: 1.9; }
+.sent__note {
+  margin: 0; padding-top: 16px; border-top: 1px dotted #b9cdba;
+  font-size: 13px; font-weight: 400; color: #5f6b5f; line-height: 1.9;
+}
+.sent__mail {
+  display: inline-block; margin-top: 6px;
+  font-family: "Helvetica Neue", Arial, sans-serif; font-size: 15px; font-weight: 700; color: #2f4a31;
+}
 .result {
   margin-top: 26px; padding: 20px 20px 22px;
-  background: #f6f2ea; border: 1px solid #d9cfc0;
+  background: #fbf3ef; border: 2px solid #c7a294;
 }
 .result__head {
-  margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #1f1b18; letter-spacing: .06em;
+  margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #8a4b3c; letter-spacing: .04em; line-height: 1.7;
 }
 .result__text {
   width: 100%; background: #fff; border: 1px solid #d7cec1; border-radius: 2px;
@@ -1190,11 +1211,18 @@ footer {
         <textarea id="message" name="message" placeholder="ご質問やご要望がありましたらご記入ください"></textarea>
       </div>
 
-      <button type="submit" class="submit">お申し込み内容をつくる</button>
-      <p class="form__note">押すと、下にお申し込み内容が表示されます。メールアプリで送るか、内容をコピーしてお送りください。</p>
+      <button type="submit" class="submit" id="btnSubmit">この内容で申し込む</button>
+      <p class="form__note">押すとそのまま送信されます。メールアプリは必要ありません。</p>
+
+      <div class="sent hidden" id="sent">
+        <p class="sent__mark">✓</p>
+        <p class="sent__head">お申し込みを承りました</p>
+        <p class="sent__body">ありがとうございます。ご入力いただいたメールアドレスに、受付のご連絡をお送りしました。<br>担当より改めてご連絡いたしますので、少々お待ちください。</p>
+        <p class="sent__note">メールが届かない場合は、迷惑メールフォルダをご確認いただくか、<br>下記までお問い合わせください。<br><span class="sent__mail">kumiko1129nabe@yahoo.co.jp</span></p>
+      </div>
 
       <div class="result hidden" id="result">
-        <p class="result__head">この内容でお申し込みください</p>
+        <p class="result__head">送信できませんでした。お手数ですが、こちらからお送りください</p>
         <textarea class="result__text" id="resultText" readonly rows="12"></textarea>
         <ol class="result__steps">
           <li><button type="button" class="result__btn result__btn--main" id="btnCopy">① 内容をコピーする</button></li>
@@ -1236,6 +1264,7 @@ footer {
 (function () {
   // ★ 申し込みの届け先。決まったらここを書き換えてください
   var MAIL_TO = "kumiko1129nabe@yahoo.co.jp";
+  var GAS_URL = "https://script.google.com/macros/s/AKfycbzQHG2MPz9M83yk6fXLi7vwfctoWHNYTJAmPgx_3KzHHViwTbn9TaPc-sJj73GnS1CQ/exec";
   var PRICE = 1500;
 
   var selected = [];   // {code, title}
@@ -1367,13 +1396,55 @@ footer {
     var body = L.join("\n");
     var subject = "【お申し込み】" + kind + "／" + val("name") + "様";
 
+    // 手で送る場合の控えを先に用意しておく
     var box = document.getElementById("result");
+    var sent = document.getElementById("sent");
     document.getElementById("resultText").value = body;
     document.getElementById("btnMail").href = "mailto:" + MAIL_TO
       + "?subject=" + encodeURIComponent(subject)
       + "&body=" + encodeURIComponent(body);
-    box.classList.remove("hidden");
-    box.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    var btn = document.getElementById("btnSubmit");
+    btn.disabled = true;
+    btn.textContent = "送信しています…";
+
+    var payload = {
+      kind: kind, name: val("name"), kana: val("kana"), email: val("email"),
+      tel: val("tel"), address: val("address"), message: val("message"),
+      petInfo: val("petInfo"),
+      works: selected.map(function (it) { return it.code + " " + it.title + " " + it.qty + "点"; }).join("／"),
+      count: kind === "既存の絵を購入" ? count() + "点" : "",
+      total: kind === "既存の絵を購入" ? (count() * PRICE).toLocaleString() + "円" : "",
+      subject: subject, body: body
+    };
+
+    var finish = function (ok) {
+      btn.disabled = false;
+      btn.textContent = "この内容で申し込む";
+      if (ok) {
+        box.classList.add("hidden");
+        sent.classList.remove("hidden");
+        sent.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        sent.classList.add("hidden");
+        box.classList.remove("hidden");
+        box.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    if (!GAS_URL) { finish(false); return; }
+
+    var timer = setTimeout(function () { finish(false); }, 15000);
+    fetch(GAS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).then(function () {
+      clearTimeout(timer); finish(true);
+    }).catch(function () {
+      clearTimeout(timer); finish(false);
+    });
   });
 
   /* ---- 内容をコピー ---- */
