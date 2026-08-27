@@ -201,7 +201,25 @@ section { padding: 60px 0; }
   transition: background .15s ease, color .15s ease;
 }
 .card__btn:hover { background: #8a4b3c; color: #fff; }
-.card.is-selected .card__btn { background: #8a4b3c; color: #fff; border-color: #8a4b3c; }
+.card__qty {
+  display: none; align-items: center;
+  border: 1px solid #8a4b3c; border-radius: 2px; overflow: hidden;
+}
+.card.is-selected .card__btn { display: none; }
+.card.is-selected .card__qty { display: inline-flex; }
+.card__qty-btn {
+  width: 30px; height: 30px; padding: 0;
+  font-family: inherit; font-size: 15px; font-weight: 700;
+  color: #fff; background: #8a4b3c; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.card__qty-btn:hover { background: #743d31; }
+.card__qty-num {
+  min-width: 38px; padding: 0 4px; text-align: center;
+  font-size: 14px; font-weight: 700; color: #1f1b18; background: #fff;
+  line-height: 30px;
+}
+.selected-box__list li span { color: #8a4b3c; }
 
 /* ============ オーダーメイド ============ */
 .order { background: #f1ece3; border-top: 1px solid #e5ded4; }
@@ -400,6 +418,9 @@ footer {
   .card__code { font-size: 10px; }
   .card__price { font-size: 12px; }
   .card__btn { font-size: 11px; padding: 5px 8px; width: 100%; margin-top: 2px; }
+  .card__qty { margin-top: 2px; }
+  .card__qty-btn { width: 34px; height: 32px; font-size: 16px; }
+  .card__qty-num { min-width: 34px; line-height: 32px; }
   .series__head { font-size: 17px; }
   .series { margin-bottom: 42px; }
 
@@ -461,7 +482,7 @@ footer {
         <li>掲載写真は、額縁を外した絵の部分のみを掲載しています</li>
         <li>お支払いは<strong>銀行振込</strong>（りそな銀行）です。お申し込みのあと、金額と振込先をメールでご案内します</li>
         <li>恐れ入りますが、<strong>振込手数料はご負担ください</strong></li>
-        <li>気に入った作品の「この絵を選ぶ」を押すと、下のお申し込みフォームに反映されます</li>
+        <li>気に入った作品の「この絵を選ぶ」を押すと、下のお申し込みフォームに反映されます。<strong>何点でもお選びいただけます</strong>し、同じ絵を2点以上ご希望の場合は「＋」で枚数を増やせます</li>
       </ul>
 
       <div class="terms__notice">
@@ -484,6 +505,11 @@ footer {
             <span class="card__code">CAT-01</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-01" data-title="おじゃまします">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-01">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="おじゃまします を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="おじゃまします を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -495,6 +521,11 @@ footer {
             <span class="card__code">CAT-02</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-02" data-title="にゃにか？">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-02">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="にゃにか？ を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="にゃにか？ を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -506,6 +537,11 @@ footer {
             <span class="card__code">CAT-03</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-03" data-title="のぞき猫">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-03">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="のぞき猫 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="のぞき猫 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -517,6 +553,11 @@ footer {
             <span class="card__code">CAT-04</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-04" data-title="アメ猫">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-04">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="アメ猫 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="アメ猫 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -528,6 +569,11 @@ footer {
             <span class="card__code">CAT-05</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-05" data-title="居眠り猫ちゃん">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-05">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="居眠り猫ちゃん を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="居眠り猫ちゃん を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -539,6 +585,11 @@ footer {
             <span class="card__code">CAT-06</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-06" data-title="鈴木にゃいおん">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-06">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="鈴木にゃいおん を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="鈴木にゃいおん を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -550,6 +601,11 @@ footer {
             <span class="card__code">CAT-07</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-07" data-title="ごろりんこ">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-07">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="ごろりんこ を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="ごろりんこ を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -561,6 +617,11 @@ footer {
             <span class="card__code">CAT-08</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-08" data-title="黒猫ちゃん（ちぎり絵）">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-08">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="黒猫ちゃん（ちぎり絵） を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="黒猫ちゃん（ちぎり絵） を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -572,6 +633,11 @@ footer {
             <span class="card__code">CAT-09</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-09" data-title="夜のお散歩">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-09">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="夜のお散歩 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="夜のお散歩 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -583,6 +649,11 @@ footer {
             <span class="card__code">CAT-10</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-10" data-title="シャム猫のジャム">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-10">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="シャム猫のジャム を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="シャム猫のジャム を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -594,6 +665,11 @@ footer {
             <span class="card__code">CAT-11</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-11" data-title="おやつください">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-11">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="おやつください を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="おやつください を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -605,6 +681,11 @@ footer {
             <span class="card__code">CAT-12</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-12" data-title="小福ちゃん">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-12">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="小福ちゃん を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="小福ちゃん を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -616,6 +697,11 @@ footer {
             <span class="card__code">CAT-13</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-13" data-title="にゃ〜〜">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-13">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="にゃ〜〜 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="にゃ〜〜 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -627,6 +713,11 @@ footer {
             <span class="card__code">CAT-14</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-14" data-title="背伸び猫ちゃん">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-14">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="背伸び猫ちゃん を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="背伸び猫ちゃん を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -638,6 +729,11 @@ footer {
             <span class="card__code">CAT-15</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-15" data-title="仲良し猫ちゃん">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-15">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="仲良し猫ちゃん を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="仲良し猫ちゃん を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -649,6 +745,11 @@ footer {
             <span class="card__code">CAT-16</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-16" data-title="おかえりなさい">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-16">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="おかえりなさい を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="おかえりなさい を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -660,6 +761,11 @@ footer {
             <span class="card__code">CAT-17</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-17" data-title="ここにいるよ">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-17">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="ここにいるよ を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="ここにいるよ を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -671,6 +777,11 @@ footer {
             <span class="card__code">CAT-18</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-18" data-title="お迎え猫ちゃん">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-18">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="お迎え猫ちゃん を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="お迎え猫ちゃん を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -682,6 +793,11 @@ footer {
             <span class="card__code">CAT-19</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-19" data-title="失礼します">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-19">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="失礼します を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="失礼します を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -693,6 +809,11 @@ footer {
             <span class="card__code">CAT-20</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-20" data-title="猫と風船">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-20">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="猫と風船 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="猫と風船 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -704,6 +825,11 @@ footer {
             <span class="card__code">CAT-21</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-21" data-title="猫旅（ちぎり絵）">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-21">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="猫旅（ちぎり絵） を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="猫旅（ちぎり絵） を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -715,6 +841,11 @@ footer {
             <span class="card__code">CAT-22</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-22" data-title="舟屋の風景">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-22">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="舟屋の風景 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="舟屋の風景 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -726,6 +857,11 @@ footer {
             <span class="card__code">CAT-23</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="CAT-23" data-title="にゃにかご用？">この絵を選ぶ</button>
+            <span class="card__qty" data-code="CAT-23">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="にゃにかご用？ を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="にゃにかご用？ を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -744,6 +880,11 @@ footer {
             <span class="card__code">DOG-01</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="DOG-01" data-title="Yeah〜（イエーイ〜）">この絵を選ぶ</button>
+            <span class="card__qty" data-code="DOG-01">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="Yeah〜（イエーイ〜） を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="Yeah〜（イエーイ〜） を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -755,6 +896,11 @@ footer {
             <span class="card__code">DOG-02</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="DOG-02" data-title="茶太郎君">この絵を選ぶ</button>
+            <span class="card__qty" data-code="DOG-02">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="茶太郎君 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="茶太郎君 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -766,6 +912,11 @@ footer {
             <span class="card__code">DOG-03</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="DOG-03" data-title="ご挨拶">この絵を選ぶ</button>
+            <span class="card__qty" data-code="DOG-03">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="ご挨拶 を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="ご挨拶 を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -777,6 +928,11 @@ footer {
             <span class="card__code">DOG-04</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="DOG-04" data-title="散歩まだ？">この絵を選ぶ</button>
+            <span class="card__qty" data-code="DOG-04">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="散歩まだ？ を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="散歩まだ？ を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -788,6 +944,11 @@ footer {
             <span class="card__code">DOG-05</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="DOG-05" data-title="あったか〜い">この絵を選ぶ</button>
+            <span class="card__qty" data-code="DOG-05">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="あったか〜い を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="あったか〜い を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -799,6 +960,11 @@ footer {
             <span class="card__code">DOG-06</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="DOG-06" data-title="春よ来い">この絵を選ぶ</button>
+            <span class="card__qty" data-code="DOG-06">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="春よ来い を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="春よ来い を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -810,6 +976,11 @@ footer {
             <span class="card__code">DOG-07</span>
             <span class="card__price">1,500円</span>
             <button type="button" class="card__btn" data-code="DOG-07" data-title="ごちそうさま">この絵を選ぶ</button>
+            <span class="card__qty" data-code="DOG-07">
+              <button type="button" class="card__qty-btn" data-act="minus" aria-label="ごちそうさま を1点減らす">−</button>
+              <span class="card__qty-num" aria-live="polite">1</span>
+              <button type="button" class="card__qty-btn" data-act="plus" aria-label="ごちそうさま を1点増やす">＋</button>
+            </span>
           </div>
         </figcaption>
       </figure>
@@ -947,40 +1118,69 @@ footer {
   var emptyEl = document.getElementById("selectedEmpty");
   var totalEl = document.getElementById("selectedTotal");
 
+  function count() {
+    var n = 0;
+    selected.forEach(function (it) { n += it.qty; });
+    return n;
+  }
   function render() {
     listEl.innerHTML = "";
     selected.forEach(function (it) {
       var li = document.createElement("li");
       li.textContent = it.code + "　" + it.title;
+      if (it.qty > 1) {
+        var sp = document.createElement("span");
+        sp.textContent = "　× " + it.qty;
+        li.appendChild(sp);
+      }
       listEl.appendChild(li);
     });
-    if (selected.length) {
+    var n = count();
+    if (n) {
       emptyEl.classList.add("hidden");
       totalEl.classList.remove("hidden");
-      totalEl.textContent = selected.length + "点　合計 " + (selected.length * PRICE).toLocaleString() + "円（税込・送料込）";
+      totalEl.textContent = n + "点　合計 " + (n * PRICE).toLocaleString() + "円（税込・送料込）";
     } else {
       emptyEl.classList.remove("hidden");
       totalEl.classList.add("hidden");
     }
   }
+  function find(code) {
+    for (var i = 0; i < selected.length; i++) if (selected[i].code === code) return i;
+    return -1;
+  }
+  function setQty(code, title, qty, card) {
+    var i = find(code);
+    if (qty <= 0) {
+      if (i >= 0) selected.splice(i, 1);
+      card.classList.remove("is-selected");
+      card.querySelector(".card__btn").textContent = "この絵を選ぶ";
+      card.querySelector(".card__qty-num").textContent = "1";
+    } else {
+      if (i >= 0) selected[i].qty = qty;
+      else selected.push({ code: code, title: title, qty: qty });
+      card.classList.add("is-selected");
+      card.querySelector(".card__qty-num").textContent = String(qty);
+    }
+    render();
+  }
 
   document.querySelectorAll(".card__btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      var code = btn.getAttribute("data-code");
-      var title = btn.getAttribute("data-title");
       var card = btn.closest(".card");
-      var i = -1;
-      selected.forEach(function (x, n) { if (x.code === code) i = n; });
-      if (i >= 0) {
-        selected.splice(i, 1);
-        card.classList.remove("is-selected");
-        btn.textContent = "この絵を選ぶ";
-      } else {
-        selected.push({ code: code, title: title });
-        card.classList.add("is-selected");
-        btn.textContent = "選択中";
-      }
-      render();
+      setQty(btn.getAttribute("data-code"), btn.getAttribute("data-title"), 1, card);
+    });
+  });
+  document.querySelectorAll(".card__qty-btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var card = b.closest(".card");
+      var code = card.getAttribute("data-code");
+      var title = card.querySelector(".card__btn").getAttribute("data-title");
+      var i = find(code);
+      var now = i >= 0 ? selected[i].qty : 0;
+      var next = b.getAttribute("data-act") === "plus" ? now + 1 : now - 1;
+      if (next > 20) next = 20;
+      setQty(code, title, next, card);
     });
   });
   render();
@@ -1006,16 +1206,18 @@ footer {
     if (!val("email")) miss.push("メールアドレス");
     if (!val("address")) miss.push("お届け先ご住所");
     if (kind === "オーダーメイド" && !val("petInfo")) miss.push("ペットについて");
-    if (kind === "既存の絵を購入" && selected.length === 0) miss.push("作品の選択");
+    if (kind === "既存の絵を購入" && count() === 0) miss.push("作品の選択");
     if (miss.length) { alert("次の項目をご入力ください。\n\n・" + miss.join("\n・")); return; }
 
     var L = [];
     L.push("【ご希望の内容】" + kind);
     if (kind === "既存の絵を購入") {
       L.push("【お選びの作品】");
-      selected.forEach(function (it) { L.push("　" + it.code + "　" + it.title); });
-      L.push("【点数】" + selected.length + "点");
-      L.push("【合計金額】" + (selected.length * PRICE).toLocaleString() + "円（税込・送料込）");
+      selected.forEach(function (it) {
+        L.push("　" + it.code + "　" + it.title + "　" + it.qty + "点");
+      });
+      L.push("【点数】" + count() + "点");
+      L.push("【合計金額】" + (count() * PRICE).toLocaleString() + "円（税込・送料込）");
     } else {
       L.push("【ペットについて】" + val("petInfo"));
       L.push("【価格】A4サイズ 3万円以上（絵をご覧いただいてから金額をお決めいただきます）");
